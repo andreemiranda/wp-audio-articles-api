@@ -1,0 +1,37 @@
+{
+  "name": "WP Audio Articles API",
+  "description": "Text-to-Speech API for WordPress using Python and pyttsx3",
+  "repository": "https://github.com/seu-usuario/wp-audio-articles-api",
+  "logo": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/python.svg",
+  "keywords": ["python", "flask", "tts", "wordpress", "audio", "pyttsx3"],
+  "success_url": "/api/health",
+  "env": {
+    "WP_AUDIO_API_KEY": {
+      "description": "API key for authentication",
+      "generator": "secret"
+    },
+    "DEBUG": {
+      "description": "Enable debug mode",
+      "value": "false"
+    },
+    "MAX_CACHE_SIZE": {
+      "description": "Maximum number of cached audio files",
+      "value": "30"
+    },
+    "MAX_TEXT_LENGTH": {
+      "description": "Maximum text length for synthesis",
+      "value": "6000"
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "free"
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ]
+}

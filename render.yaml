@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: wp-audio-articles-api
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    envVars:
+      - key: WP_AUDIO_API_KEY
+        generateValue: true
+      - key: DEBUG
+        value: false
+      - key: MAX_CACHE_SIZE
+        value: 30
+      - key: MAX_TEXT_LENGTH
+        value: 6000
+      - key: PORT
+        value: 10000
+    healthCheckPath: /api/health
+    autoDeploy: true
+    region: oregon
+    scaling:
+      minInstances: 1
+      maxInstances: 1
+    disk:
+      name: wp-audio-cache
+      mountPath: /tmp
+      sizeGB: 1
