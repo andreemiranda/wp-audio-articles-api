@@ -1,0 +1,484 @@
+/**
+ * WP Audio Articles Player Styles - Dark Theme
+ * Tema escuro com cores preto/cinza
+ */
+
+.wp-audio-articles-player {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    border: 1px solid #404040;
+    flex-wrap: nowrap;
+    position: relative;
+    height: 60px;
+    transition: all 0.3s ease;
+    color: #ffffff;
+}
+
+.wp-audio-articles-player:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #333333 0%, #1f1f1f 100%);
+}
+
+.wp-audio-articles-first-row {
+    display: flex;
+    align-items: center;
+    margin-right: 16px;
+    flex-shrink: 0;
+}
+
+.wp-audio-articles-play-button {
+    background: linear-gradient(135deg, #4a4a4a 0%, #2a2a2a 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-right: 12px;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+    border: 1px solid #555555;
+}
+
+.wp-audio-articles-play-button:hover {
+    background: linear-gradient(135deg, #555555 0%, #333333 100%);
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.wp-audio-articles-play-button:active {
+    transform: scale(0.95);
+}
+
+.wp-audio-articles-play-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #666666, 0 0 0 4px rgba(102, 102, 102, 0.3);
+}
+
+.wp-audio-articles-play-button .play-icon,
+.wp-audio-articles-play-button .pause-icon {
+    font-size: 16px;
+    line-height: 1;
+    margin-left: 2px;
+}
+
+.wp-audio-articles-play-button .pause-icon {
+    display: none;
+    margin-left: 0;
+}
+
+.wp-audio-articles-player.playing .play-icon {
+    display: none;
+}
+
+.wp-audio-articles-player.playing .pause-icon {
+    display: block;
+}
+
+.wp-audio-articles-progress-container {
+    flex-grow: 1;
+    height: 8px;
+    background-color: #404040;
+    border-radius: 4px;
+    margin: 0 16px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    min-width: 100px;
+    border: 1px solid #555555;
+}
+
+.wp-audio-articles-progress-bar {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, #666666 0%, #888888 100%);
+    border-radius: 4px;
+    transition: width 0.2s ease;
+    position: relative;
+}
+
+.wp-audio-articles-progress-bar::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.wp-audio-articles-progress-container:hover .wp-audio-articles-progress-bar::after {
+    opacity: 1;
+}
+
+.wp-audio-articles-timer {
+    font-size: 13px;
+    color: #cccccc;
+    margin-right: 12px;
+    flex-shrink: 0;
+    min-width: 45px;
+    font-weight: 500;
+    font-family: 'Courier New', monospace;
+}
+
+.wp-audio-articles-speed-container {
+    position: relative;
+    flex-shrink: 0;
+    margin-right: 8px;
+}
+
+.wp-audio-articles-speed-selector {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #333333;
+    border: 1px solid #555555;
+    border-radius: 6px;
+    padding: 6px 24px 6px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    color: #ffffff;
+    transition: all 0.2s ease;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="%23ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 12px;
+    min-width: 60px;
+}
+
+.wp-audio-articles-speed-selector:hover {
+    border-color: #666666;
+    background-color: #3a3a3a;
+}
+
+.wp-audio-articles-speed-selector:focus {
+    outline: none;
+    border-color: #777777;
+    box-shadow: 0 0 0 2px rgba(119, 119, 119, 0.3);
+}
+
+.wp-audio-articles-voice-selector {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #333333;
+    border: 1px solid #555555;
+    border-radius: 6px;
+    padding: 6px 24px 6px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    color: #ffffff;
+    transition: all 0.2s ease;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="%23ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 12px;
+    min-width: 70px;
+    margin-left: 8px;
+}
+
+.wp-audio-articles-voice-selector:hover {
+    border-color: #666666;
+    background-color: #3a3a3a;
+}
+
+.wp-audio-articles-voice-selector:focus {
+    outline: none;
+    border-color: #777777;
+    box-shadow: 0 0 0 2px rgba(119, 119, 119, 0.3);
+}
+
+/* Menu de configurações melhorado */
+.wp-audio-articles-settings {
+    position: relative;
+    flex-shrink: 0;
+    margin-left: 12px;
+    z-index: 20;
+}
+
+.wp-audio-articles-settings-button {
+    background: #333333;
+    border: 1px solid #555555;
+    color: #ffffff;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    padding: 0;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.wp-audio-articles-settings-button:hover {
+    background-color: #3a3a3a;
+    border-color: #666666;
+}
+
+.wp-audio-articles-settings-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(119, 119, 119, 0.3);
+}
+
+.wp-audio-articles-settings-icon {
+    width: 16px;
+    height: 16px;
+    display: block;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>');
+}
+
+.wp-audio-articles-settings-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    width: 280px;
+    background-color: #2a2a2a;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    padding: 16px;
+    display: none;
+    z-index: 1000;
+    border: 1px solid #444444;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.wp-audio-articles-settings-dropdown.active {
+    display: block;
+    animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.wp-audio-articles-settings-dropdown:before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    right: 12px;
+    width: 12px;
+    height: 12px;
+    background-color: #2a2a2a;
+    transform: rotate(45deg);
+    border-left: 1px solid #444444;
+    border-top: 1px solid #444444;
+}
+
+.wp-audio-articles-settings-group {
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #404040;
+}
+
+.wp-audio-articles-settings-group:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.wp-audio-articles-settings-title {
+    font-size: 11px;
+    font-weight: 600;
+    color: #cccccc;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.wp-audio-articles-settings-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    padding: 4px 0;
+}
+
+.wp-audio-articles-settings-option:last-child {
+    margin-bottom: 0;
+}
+
+.wp-audio-articles-settings-checkbox {
+    margin-right: 8px;
+    accent-color: #666666;
+}
+
+.wp-audio-articles-settings-label {
+    font-size: 12px;
+    color: #ffffff;
+    line-height: 1.4;
+    flex: 1;
+}
+
+.wp-audio-articles-settings-select {
+    width: 100%;
+    padding: 6px 8px;
+    border-radius: 4px;
+    border: 1px solid #555555;
+    font-size: 12px;
+    color: #ffffff;
+    background-color: #333333;
+    margin-top: 6px;
+}
+
+.wp-audio-articles-settings-select:focus {
+    outline: none;
+    border-color: #777777;
+    box-shadow: 0 0 0 2px rgba(119, 119, 119, 0.3);
+}
+
+/* API Status Indicator */
+.wp-audio-articles-api-status {
+    position: relative;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #dc3545;
+    margin-left: 8px;
+    flex-shrink: 0;
+}
+
+.wp-audio-articles-api-status.online {
+    background-color: #28a745;
+    animation: pulse 2s infinite;
+}
+
+.wp-audio-articles-api-status::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: -1;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+/* Layout responsivo para dispositivos móveis */
+@media (max-width: 767px) {
+    .wp-audio-articles-player {
+        height: auto;
+        min-height: 55px;
+        padding: 10px 12px;
+        flex-wrap: wrap;
+    }
+    
+    .wp-audio-articles-first-row {
+        margin-right: 10px;
+    }
+    
+    .wp-audio-articles-play-button {
+        width: 36px;
+        height: 36px;
+        margin-right: 10px;
+    }
+    
+    .wp-audio-articles-timer {
+        font-size: 12px;
+        margin-right: 10px;
+        min-width: 40px;
+    }
+    
+    .wp-audio-articles-progress-container {
+        margin: 0 10px;
+        min-width: 80px;
+        height: 6px;
+    }
+    
+    .wp-audio-articles-speed-selector,
+    .wp-audio-articles-voice-selector {
+        font-size: 11px;
+        padding: 4px 20px 4px 8px;
+        min-width: 50px;
+    }
+    
+    .wp-audio-articles-settings-dropdown {
+        width: 260px;
+        right: -20px;
+    }
+}
+
+/* Melhorias de acessibilidade */
+.wp-audio-articles-player * {
+    outline: none;
+}
+
+.wp-audio-articles-player *:focus {
+    box-shadow: 0 0 0 2px rgba(119, 119, 119, 0.5);
+}
+
+/* Loading state */
+.wp-audio-articles-player.loading {
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+.wp-audio-articles-player.loading .wp-audio-articles-play-button {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Error state */
+.wp-audio-articles-error {
+    background-color: #2a2a2a;
+    color: #ff6b6b;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    text-align: center;
+    border: 1px solid #444444;
+}
+
+/* Scrollbar personalizada para dropdown */
+.wp-audio-articles-settings-dropdown::-webkit-scrollbar {
+    width: 6px;
+}
+
+.wp-audio-articles-settings-dropdown::-webkit-scrollbar-track {
+    background: #333333;
+    border-radius: 3px;
+}
+
+.wp-audio-articles-settings-dropdown::-webkit-scrollbar-thumb {
+    background: #555555;
+    border-radius: 3px;
+}
+
+.wp-audio-articles-settings-dropdown::-webkit-scrollbar-thumb:hover {
+    background: #666666;
+}

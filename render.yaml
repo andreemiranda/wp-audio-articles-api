@@ -3,19 +3,27 @@ services:
     name: wp-audio-articles-api
     env: python
     plan: free
-    buildCommand: pip install -r requirements.txt
-    startCommand: python main.py
+    buildCommand: |
+      pip install --upgrade pip
+      pip install -r requirements.txt
+      python -c "import pyttsx3; print('TTS OK')"
+    startCommand: |
+      python main.py
     envVars:
       - key: WP_AUDIO_API_KEY
         generateValue: true
       - key: DEBUG
-        value: false
+        value: "false"
       - key: MAX_CACHE_SIZE
-        value: 30
+        value: "20"
       - key: MAX_TEXT_LENGTH
-        value: 6000
+        value: "5000"
       - key: PORT
-        value: 10000
+        value: "10000"
+      - key: PYTHONUNBUFFERED
+        value: "1"
+      - key: PYTHONPATH
+        value: "."
     healthCheckPath: /api/health
     autoDeploy: true
     region: oregon
