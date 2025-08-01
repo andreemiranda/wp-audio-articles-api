@@ -3,3 +3,4 @@ Flask-CORS==4.0.0
 gTTS==2.5.1
 gunicorn==21.2.0
 Werkzeug==3.0.1
+langdetect==1.0.9
